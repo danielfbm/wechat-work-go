@@ -36,7 +36,7 @@ func (m Message) SendAppMessage(v Sendable) (RespSendAppMsg, error) {
 	uri := fmt.Sprintf("%s?access_token=%s", apiPath, m.App.GetAccessToken())
 
 	if !v.Sendable() {
-		panic("touser, toparty, totag 不能同时为空, agentid 不能为空, 请检查")
+		return RespSendAppMsg{}, fmt.Errorf("touser, toparty, totag 不能同时为空, agentid 不能为空, 请检查")
 	}
 
 	var result RespSendAppMsg

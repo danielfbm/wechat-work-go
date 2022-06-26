@@ -108,7 +108,7 @@ func (app *App) SimpleGet(url string, respObj interface{}) error {
 
 	if err != nil {
 		fmt.Fprintln(os.Stdout, resp.Body())
-		panic(err)
+		return err
 	}
 	return nil
 }
@@ -131,7 +131,7 @@ func (app *App) SimplePost(url string, body interface{}, respObj interface{}) er
 
 	if err != nil {
 		fmt.Fprintln(os.Stdout, resp.Body())
-		panic(err)
+		return err
 	}
 	return nil
 }
